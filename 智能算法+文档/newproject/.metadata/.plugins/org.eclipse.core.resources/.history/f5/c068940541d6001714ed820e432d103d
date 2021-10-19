@@ -1,0 +1,26 @@
+package CI;
+
+import Graph.Graph;
+
+public class Run {
+	public static void main(String[] args) {
+		Graph physic=new Graph("P.txt",true);//55-103
+		Graph virtual=new Graph("V.txt",false);//14-21
+		//物理节点0容量，取值0-54
+		physic.nodes[0].getCapacity();
+		//虚拟节点0容量，取值0-13
+		virtual.nodes[0].getCapacity();
+		
+		//链路映射，最短路径，无路是为NULL，会更新邻接矩阵
+		int[] path=physic.dijkstra(1, 30, 2000);
+		//邻接矩阵复原
+		physic.refreshMatrix();
+		
+		//虚拟链路节点
+		virtual.links[0].getLeftID();
+		virtual.links[0].getRightID();
+		
+		//虚拟链路带宽
+		virtual.links[0].getBandWidth();
+	}
+}
